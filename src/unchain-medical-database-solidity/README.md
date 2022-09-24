@@ -1,3 +1,21 @@
+## Start
+
+```sh
+mkdir src
+mkdir unchain-medical-database-solidity
+cd unchain-medical-database-solidity
+npm init -y
+npm install --save-dev hardhat
+npx hardhat
+```
+
+## Check
+
+```sh
+ npx hardhat compile
+ npx hardhat test
+ ```
+
 ## Test
 
 ```sh
