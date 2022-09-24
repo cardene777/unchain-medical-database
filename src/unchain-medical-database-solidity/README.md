@@ -1,13 +1,19 @@
-# Sample Hardhat Project
+## Test
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+```sh
+npx hardhat run scripts/run.js
+```
 
-Try running some of the following tasks:
+## Local Deploy
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
+- Launching the Ethereum Network
+
+```sh
 npx hardhat node
-npx hardhat run scripts/deploy.js
+```
+
+- Start a separate window and run it.
+
+```sh
+npx hardhat run scripts/deploy.js --network localhost
 ```
