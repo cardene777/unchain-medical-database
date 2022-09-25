@@ -34,7 +34,7 @@ function Common() {
                     <div className="flex items-center px-4 py-4 -mx-2">
                         <img className="object-cover mx-2 rounded-full h-9 w-9"
                         src="https://gateway.pinata.cloud/ipfs/QmPWcx1CvQ9MmjzsgcAbPtdyMxJNnjQKmL75oYUbWKDZtp" alt="avatar" />
-                        <h4 className="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">John Doe</h4>
+                        <h4 className="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">Cardene</h4>
                     </div>
                 </div>
             </div>

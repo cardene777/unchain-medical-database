@@ -5,6 +5,8 @@ pragma solidity ^0.8.9;
 import "hardhat/console.sol";
 
 contract MedicalDatabase {
+    event NewMedicalData(string name, string bloodType, uint registerDate, uint updateDate,
+                        address indexed userAddress, address[] doctors);
     struct PatientData {
         string name;  // 患者名
         string bloodType; // 患者の血液型
@@ -42,6 +44,10 @@ contract MedicalDatabase {
         // 患者のアドレスと構造体の位置を紐け
         patientDataIndex[msg.sender] = indexCounter;
         indexCounter++;
+
+        address[] memory _userWallet;
+
+        emit NewMedicalData(_name, _bloodType, block.timestamp, block.timestamp, msg.sender, _userWallet);
     }
 
     // 医療データの編集
@@ -72,7 +78,18 @@ contract MedicalDatabase {
         uint _patientIdIndex = patientDataIndex[_patientAddress];
 
         require(msg.sender == patientData[_patientIdIndex].userAddress || patientData[_patientIdIndex].doctorsCheck[msg.sender] == true);
+
         return(patientData[_patientIdIndex].name, patientData[_patientIdIndex].bloodType,
+                patientData[_patientIdIndex].registerDate, patientData[_patientIdIndex].updateDate,
+                patientData[_patientIdIndex].userAddress, patientData[_patientIdIndex].doctors);
+    }
+
+    function emitPatientData(address _patientAddress) public {
+        uint _patientIdIndex = patientDataIndex[_patientAddress];
+
+        require(msg.sender == patientData[_patientIdIndex].userAddress || patientData[_patientIdIndex].doctorsCheck[msg.sender] == true);
+
+        emit NewMedicalData(patientData[_patientIdIndex].name, patientData[_patientIdIndex].bloodType,
                 patientData[_patientIdIndex].registerDate, patientData[_patientIdIndex].updateDate,
                 patientData[_patientIdIndex].userAddress, patientData[_patientIdIndex].doctors);
     }

@@ -2,6 +2,16 @@
 import { Link } from 'react-router-dom'
 
 function Notice() {
+    const iconArray = [
+        "QmPWcx1CvQ9MmjzsgcAbPtdyMxJNnjQKmL75oYUbWKDZtp",
+        "QmVJQi3qEYqtVroA3xxZpHdT54isU99fck2F33vchWfUWZ",
+        "QmTtEgFKKgah1WNX4eLprcJbhfsPXC984FUjXDJDn4zukn",
+        "QmUnJuFURetMq6xXvRBA3PgcJY3KSQmRvXv7RZAfk8cemS",
+        "QmZhkHvfMd2oqNnz9ixjLhKb2EcaFjBk3hddeNLvkT4AL5",
+    ]
+
+    const iconLength = iconArray.length;
+
     return (
         <div className="flex">
             <div className="text-gray-600 body-font">
@@ -10,7 +20,7 @@ function Notice() {
                         <div className="p-4 lg:w-1/2 md:w-full">
                         <div className="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
                             <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
-                            <h1>Icon</h1>
+                            <img src={`https://gateway.pinata.cloud/ipfs/${iconArray[Math.floor( Math.random() * iconLength )]}`} alt="icon" />
                             </div>
                             <div className="flex-grow">
                             <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Shooting Stars</h2>
