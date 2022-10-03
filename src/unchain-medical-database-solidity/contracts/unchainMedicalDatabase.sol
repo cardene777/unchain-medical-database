@@ -34,7 +34,7 @@ contract MedicalDatabase {
         require(patientDataIndex[msg.sender] == 0, "Your medical data is already registered.");
 
         // 患者データの登録
-        PatientData storage newPatientData = patientData.push();
+        PatientData memory newPatientData = patientData.push();
         newPatientData.name = _name;
         newPatientData.bloodType = _bloodType;
         newPatientData.registerDate = block.timestamp;

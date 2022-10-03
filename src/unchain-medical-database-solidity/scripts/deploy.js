@@ -6,40 +6,7 @@ const main = async () => {
 
   console.log("Contract deployed to: ", UnchainMedicalDatabase.address);
   console.log("owner address: ", owner.address);
-  console.log("randomPerson address: ", randomPerson.address);
-
-  await UnchainMedicalDatabase.addMedicalData("cardene", "A")
-
-  let medicalData
-  medicalData = await UnchainMedicalDatabase.getPatientData(owner.address)
-  console.log("Get Medical Data");
-  console.log("*".repeat(50));
-  console.log("medicalData: ", medicalData);
-  console.log("*".repeat(50));
-
-  await UnchainMedicalDatabase.editMedicalData(owner.address, "cardene update", "AB")
-
-  medicalData = await UnchainMedicalDatabase.getPatientData(owner.address)
-  console.log("Get Medical Data");
-  console.log("*".repeat(50));
-  console.log("medicalData: ", medicalData);
-  console.log("*".repeat(50));
-
-  await UnchainMedicalDatabase.addDoctor(owner.address, randomPerson.address)
-
-  medicalData = await UnchainMedicalDatabase.getPatientData(owner.address)
-  console.log("Get Medical Data");
-  console.log("*".repeat(50));
-  console.log("medicalData: ", medicalData);
-  console.log("*".repeat(50));
-
-  await UnchainMedicalDatabase.addDoctor(owner.address, randomPerson2.address)
-
-  medicalData = await UnchainMedicalDatabase.getPatientData(owner.address)
-  console.log("Get Medical Data");
-  console.log("*".repeat(50));
-  console.log("medicalData: ", medicalData);
-  console.log("*".repeat(50));
+  console.log("owner Balance: ", UnchainMedicalDatabase.balance);
 
 };
 

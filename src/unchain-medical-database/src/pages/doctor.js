@@ -1,8 +1,12 @@
-
-
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
 
+import { ContextData } from '../App';
+
 function Doctor() {
+    const iconArray = useContext(ContextData)
+
+    const iconLength = iconArray.length;
     return (
         <div className="flex">
             <div className="text-gray-600 body-font">
@@ -16,7 +20,7 @@ function Doctor() {
                         <div className="xl:w-1/3 md:w-1/2 p-4">
                             <div className="border border-gray-200 p-6 rounded-lg">
                                 <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4">
-                                    <h1>Icon</h1>
+                                <img className="rounded-full" src={`${iconArray[Math.floor( Math.random() * iconLength )]}`} alt="icon" />
                                 </div>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-2">Shooting Stars</h2>
                                 <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waist co, subway tile poke farm.</p>

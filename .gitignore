@@ -4,10 +4,12 @@ coverage
 coverage.json
 typechain
 typechain-types
+.vscode/
 
 #Hardhat files
 cache
 artifacts
+hardhat.config.js
 
 # dependencies
 /node_modules

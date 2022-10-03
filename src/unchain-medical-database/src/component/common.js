@@ -1,9 +1,15 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, useContext } from 'react';
 import { Outlet } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
+import { ContextData } from '../App';
+
 function Common() {
     const [sideMenu, setSideMenu] = useState("patientData")
+
+    const {connectWallet, currentAccount, iconArray} = useContext(ContextData);
+
+    const iconLength = iconArray.length;
 
     return (
         <div className="flex">
@@ -27,13 +33,23 @@ function Common() {
                             <span className="mx-4 font-medium">Doctor</span>
                         </Link>
 
+                        <Link className={`flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700" ${sideMenu === "doctor" ? "dark:bg-gray-700" : ""}`}
+                            to="/doctor" onClick={connectWallet}>
+                            {!currentAccount && (
+                                <span className="mx-4 font-medium">Connect Wallet</span>
+                            )}
+                            {currentAccount && (
+                                <span className="mx-4 font-medium">{currentAccount.substr(0, 8)}...</span>
+                            )}
+                        </Link>
+
                     </nav>
 
-                    <hr class="my-6 border-gray-200 dark:border-gray-600" />
+                    <hr className="my-6 border-gray-200 dark:border-gray-600" />
 
                     <div className="flex items-center px-4 py-4 -mx-2">
                         <img className="object-cover mx-2 rounded-full h-9 w-9"
-                        src="https://gateway.pinata.cloud/ipfs/QmPWcx1CvQ9MmjzsgcAbPtdyMxJNnjQKmL75oYUbWKDZtp" alt="avatar" />
+                        src={`${iconArray[Math.floor( Math.random() * iconLength )]}`} alt="avatar" />
                         <h4 className="mx-2 font-medium text-gray-800 dark:text-gray-200 hover:underline">Cardene</h4>
                     </div>
                 </div>
